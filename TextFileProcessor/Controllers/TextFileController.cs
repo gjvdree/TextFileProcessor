@@ -23,7 +23,7 @@ public class TextFileController(ISender sender, IPublisher publisher) : Controll
         cancellationToken.ThrowIfCancellationRequested(); // Request cancelled
 
         // Validate filenamme, TODO: Move to validators
-        ArgumentException.ThrowIfNullOrWhiteSpace(textFile.FileName, nameof(textFile.FileName));
+        ArgumentNullException.ThrowIfNull(textFile, nameof(textFile));
 
         // Write the file to the temp directory, save the temp filepath
         string tempFilePath = await sender.Send(new PersistFileToTempCommand(textFile.FileName, textFile.OpenReadStream()), cancellationToken);
