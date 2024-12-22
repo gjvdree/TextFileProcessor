@@ -70,8 +70,8 @@ internal class FileProcessorService : IFileProcessorService
     private static string RandomizeLine(string line)
     {
         Random random = new();
-        int randomNumber = random.Next(30, 50); //Determine number to add a character every nth character
-        char randomCharacter = (char)random.Next(23, 27); //one of these => #, $, %, &
+        int randomNumber = random.Next(20, 50); //Determine number to add a character every nth character
+        char randomCharacter = Convert.ToChar(random.Next(35, 39)); //one of these => #, $, %, &
 
         char[] result = string.IsNullOrEmpty(line) ? [] : line
             .Select<char, char[]>((c, index) => index > 0 && index % randomNumber == 0 ? [c, randomCharacter] : [c]) // Select the character, append the randomCharacter if the character is at a index which can be divided by randomNumber 
