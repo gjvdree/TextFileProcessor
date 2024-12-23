@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace TextFileProcessor.Web.Controllers;
+namespace TextFileProcessor.Api.Controllers;
 
 [Route("api/[controller]")]
 public abstract class BaseApiController : ApiController

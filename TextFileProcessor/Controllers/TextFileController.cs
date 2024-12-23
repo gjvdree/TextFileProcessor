@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TextFileProcessor.Web.Commands;
-using TextFileProcessor.Web.Events;
-using TextFileProcessor.Web.Queries;
+using TextFileProcessor.Domain.Commands;
+using TextFileProcessor.Domain.Events;
+using TextFileProcessor.Domain.Queries;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace TextFileProcessor.Web.Controllers;
+namespace TextFileProcessor.Api.Controllers;
 
 [Route("api/[controller]")]
 public class TextFileController(ISender sender, IPublisher publisher) : ControllerBase

@@ -1,7 +1,7 @@
-﻿using TextFileProcessor.Web.Commands;
-using TextFileProcessor.Web.Handlers;
+﻿using TextFileProcessor.Domain.Commands;
+using Xunit;
 
-namespace TextFileProcessor.Web.Tests.Handlers;
+namespace TextFileProcessor.Persistance.Tests.Handlers;
 
 public class PersistFileToTempCommandHandlerTests
 {
@@ -19,6 +19,6 @@ public class PersistFileToTempCommandHandlerTests
 
         // Assert
         Assert.NotEmpty(result);
-        Assert.Equal(File.ReadAllText(testFilePath), File.ReadAllText(result));
+        Assert.Equal(await File.ReadAllTextAsync(testFilePath), await File.ReadAllTextAsync(result));
     }
 }

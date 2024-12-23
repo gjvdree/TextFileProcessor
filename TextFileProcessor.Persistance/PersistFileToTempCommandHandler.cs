@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using TextFileProcessor.Web.Commands;
+using TextFileProcessor.Domain.Commands;
 
-namespace TextFileProcessor.Web.Handlers;
+namespace TextFileProcessor.Persistance;
 
 /// <summary>
 /// Handler for persisting a file

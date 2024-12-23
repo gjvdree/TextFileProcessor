@@ -1,6 +1,6 @@
-﻿using TextFileProcessor.Web.Services.Interfaces;
+﻿using TextFileProcessor.Application.Services.Interfaces;
 
-namespace TextFileProcessor.Web.Services;
+namespace TextFileProcessor.Application.Services;
 
 internal class FileProcessorService : IFileProcessorService
 {

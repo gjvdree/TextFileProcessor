@@ -1,5 +1,4 @@
-﻿
-namespace TextFileProcessor.Web.Services.Interfaces
+﻿namespace TextFileProcessor.Application.Services.Interfaces
 {
     public interface IFileProcessorService
     {

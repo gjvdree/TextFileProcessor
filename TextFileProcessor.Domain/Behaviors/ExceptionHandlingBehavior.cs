@@ -1,6 +1,7 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Logging;
 
-namespace TextFileProcessor.Web.Behaviors;
+namespace TextFileProcessor.Domain.Behaviors;
 
 internal class ExceptionHandlingBehavior<TRequest, TResponse>(ILogger<TRequest> logger) : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
 {

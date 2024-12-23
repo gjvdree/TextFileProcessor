@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using TextFileProcessor.Web.Events;
-using TextFileProcessor.Web.Services.Interfaces;
+using TextFileProcessor.Application.Services.Interfaces;
+using TextFileProcessor.Domain.Events;
 
-namespace TextFileProcessor.Web.Handlers;
+namespace TextFileProcessor.Application.Handlers;
 
 /// <summary>
 /// Eventhandler to handle the <see cref="FileUploadedEvent"/>

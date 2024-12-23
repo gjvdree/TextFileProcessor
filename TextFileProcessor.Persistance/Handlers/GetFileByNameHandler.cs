@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using TextFileProcessor.Web.Queries;
+using TextFileProcessor.Domain.Queries;
 
-namespace TextFileProcessor.Web.Handlers;
+namespace TextFileProcessor.Persistance.Handlers;
 
 /// <summary>
 /// Handler for retrieving a file by name

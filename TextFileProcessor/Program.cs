@@ -1,4 +1,5 @@
-using TextFileProcessor.Web.Extensions;
+using TextFileProcessor.Application.Extensions;
+using TextFileProcessor.Persistance.Extensions;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -14,10 +15,8 @@ builder.Logging.AddConsole();
 builder.Services.AddControllers();
 
 // Add services
-builder.Services.AddTextFileProcessorServices();
-
-// Add MediatR
-builder.Services.AddMediatR(); //Calls extension method
+builder.Services.AddApplicationServices(); //Calls extension method for application
+builder.Services.AddPersistanceServices(); //Calls extension method for persistance
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

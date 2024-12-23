@@ -1,7 +1,7 @@
-﻿using TextFileProcessor.Web.Services;
-using TextFileProcessor.Web.Services.Interfaces;
+﻿using TextFileProcessor.Application.Services;
+using TextFileProcessor.Application.Services.Interfaces;
 
-namespace TextFileProcessor.Web.Tests.Services;
+namespace TextFileProcessor.Application.Tests.Services;
 
 public class FileProcessorServiceTests
 {
@@ -14,7 +14,7 @@ public class FileProcessorServiceTests
         // Arrange 
         string lineToChange = $"Lorum Ipsum Dolor {Guid.NewGuid()}";
         string tempFilePath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-        File.WriteAllText(tempFilePath, lineToChange);
+        await File.WriteAllTextAsync(tempFilePath, lineToChange);
 
         IFileProcessorService sut = CreateSut();
 
@@ -22,7 +22,7 @@ public class FileProcessorServiceTests
         await sut.AddRandomCharacters(tempFilePath);
 
         // Assert
-        Assert.NotEqual(File.ReadAllText(tempFilePath), lineToChange);
+        Assert.NotEqual(await File.ReadAllTextAsync(tempFilePath), lineToChange);
     }
 
     [Fact]
@@ -31,7 +31,7 @@ public class FileProcessorServiceTests
         // Arrange 
         DateTime date = DateTime.UtcNow;
         string tempFilePath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-        File.WriteAllText(tempFilePath, "\r\n\r\n\r\n");
+        await File.WriteAllTextAsync(tempFilePath, "\r\n\r\n\r\n");
 
         IFileProcessorService sut = CreateSut();
 
@@ -39,7 +39,7 @@ public class FileProcessorServiceTests
         await sut.AddHeaderInformation(tempFilePath, date);
 
         // Assert
-        string[] fileContent = File.ReadAllLines(tempFilePath);
+        string[] fileContent = await File.ReadAllLinesAsync(tempFilePath);
         Assert.StartsWith("---", fileContent[0]);
         Assert.Equal($"Received: {date:G}", fileContent[1]);
         Assert.StartsWith("---", fileContent[2]);
